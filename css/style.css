@@ -1,0 +1,426 @@
+.page-index {
+  height: 1500px;
+  padding: 20px;
+  display: grid;
+  grid-gap: 20px;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: 3fr 2fr 3fr;
+}
+.page-index .main-new {
+  grid-column: span 3;
+}
+.page-index .main-new .new {
+  border-radius: 10px;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  overflow: hidden;
+  background-color: #E9E9E9;
+  box-shadow: 0px 5px 10px #CCD5D9;
+}
+.page-index .main-new .new .img-new {
+  background: url(../images/new.jpg);
+  width: 50%;
+  background-size: cover;
+}
+.page-index .main-new .new .content {
+  width: 50%;
+  height: 100%;
+  padding: 10px 15px;
+}
+.page-index .main-new .new .content .title {
+  height: 40%;
+}
+.page-index .main-new .new .content .title h3 {
+  font-family: Kdam;
+  font-size: 40px;
+  font-weight: bolder;
+  color: #071D26;
+}
+.page-index .main-new .new .content .text {
+  height: 50%;
+}
+.page-index .main-new .new .content .text p {
+  font-family: Mukta;
+  font-weight: 500;
+  font-size: 20px;
+  color: #071D26;
+}
+.page-index .main-new .new .content .btn-read {
+  padding: 5px;
+  display: flex;
+  justify-content: end;
+}
+.page-index .main-new .new .content .btn-read button {
+  font-family: Mukta;
+  font-weight: bolder;
+  color: #071D26;
+  padding: 5px;
+  border: solid 2px #071D26;
+  border-radius: 5px;
+  background-color: none;
+}
+.page-index .standings {
+  overflow: hidden;
+}
+.page-index .standings h5 {
+  position: -webkit-sticky;
+  position: sticky;
+  font-family: Kdam;
+  font-size: 35px;
+  font-weight: bolder;
+  color: #071D26;
+}
+.page-index .standings .west-stand {
+  height: 90%;
+  overflow-y: scroll;
+}
+.page-index .standings .west-stand .franchise {
+  height: 55px;
+  display: flex;
+  justify-content: space-between;
+  padding: 2px;
+}
+.page-index .standings .west-stand .franchise p {
+  margin: 0;
+  color: #F2F2f2;
+  font-size: 22px;
+  font-family: Montage;
+}
+.page-index .standings .west-stand .franchise .franchise-position {
+  width: 15%;
+  background-color: rgb(1, 80, 143);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+.page-index .standings .west-stand .franchise .franchise-name {
+  width: 62%;
+  background-color: rgb(1, 80, 143);
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.page-index .standings .west-stand .franchise .franchise-name img {
+  height: 60%;
+}
+.page-index .standings .west-stand .franchise .franchise-name p {
+  width: 60%;
+}
+.page-index .standings .west-stand .franchise .franchise-record {
+  width: 20%;
+  background-color: rgb(1, 80, 143);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.page-index .side-new {
+  padding: 0px;
+  display: flex;
+  justify-content: space-between;
+  grid-column: span 3;
+}
+.page-index .side-new .new {
+  border-radius: 10px;
+  width: 32%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  overflow: hidden;
+  background-color: #E9E9E9;
+  box-shadow: 0px 5px 10px #CCD5D9;
+}
+.page-index .side-new .new .img-new {
+  height: 70%;
+  background-size: cover;
+}
+.page-index .side-new .new .content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 30%;
+}
+.page-index .side-new .new .content .tag {
+  font-family: Kdam;
+  font-weight: bolder;
+  color: #FFF;
+  height: 25%;
+  padding: 5px;
+  margin-left: 5px;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+.page-index .side-new .new .content .tag span {
+  font-size: 12px;
+  padding: 5px;
+}
+.page-index .side-new .new .content .tag .tag-trade {
+  background-color: #EB5757;
+  border-radius: 10px;
+}
+.page-index .side-new .new .content .tag .tag-news {
+  background-color: #64C3ED;
+  border-radius: 10px;
+}
+.page-index .side-new .new .content .tag .tag-analysis {
+  background-color: #43C6AC;
+  border-radius: 10px;
+}
+.page-index .side-new .new .content .title {
+  height: 75%;
+  padding: 5px;
+}
+.page-index .side-new .new .content .title h3 {
+  font-family: Kdam;
+  font-weight: bolder;
+  color: #071D26;
+  font-size: 18px;
+}
+.page-index .side-new .new1 .img-new {
+  background: url(../../images/new1.jpg);
+  background-position: center;
+  background-size: cover;
+}
+.page-index .side-new .new2 .img-new {
+  background: url(../../images/new2.jpg);
+  background-position: center;
+  background-size: cover;
+}
+.page-index .side-new .new3 .img-new {
+  background: url(../../images/new3.jpg);
+  background-position: center;
+  background-size: cover;
+}
+.page-index .next-game {
+  overflow: hidden;
+}
+.page-index .next-game .next-game-date {
+  background-color: rgb(1, 80, 143);
+  height: 15%;
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-end;
+}
+.page-index .next-game .next-game-date p {
+  color: #FFF;
+  font-family: Kdam;
+  font-size: 15px;
+  font-weight: bolder;
+}
+.page-index .next-game .game {
+  overflow: hidden;
+  background-color: #FFF;
+  height: 70%;
+}
+.page-index .next-game .game .teams-game {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.page-index .next-game .game .teams-game .away img, .page-index .next-game .game .teams-game .home img {
+  width: 220px;
+}
+.page-index .next-game .game .teams-names {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.page-index .next-game .game .teams-names p {
+  position: absolute;
+  color: #252525;
+  font-size: 30px;
+  font-family: Montage;
+}
+.page-index .next-game .broadcast {
+  background-color: rgb(4, 50, 84);
+  height: 15%;
+  display: flex;
+  justify-content: center;
+  padding: 15px;
+}
+.page-index .next-game .broadcast img {
+  height: 17px;
+}
+.page-index .next-game .broadcast p {
+  color: #FFF;
+  font-family: Kdam;
+  font-size: 15px;
+  font-weight: bolder;
+}
+.page-index .stats {
+  grid-column: span 4;
+}
+.page-index .stats .centrado {
+  text-align: center;
+  vertical-align: middle;
+}
+
+@font-face {
+  font-family: Kdam;
+  src: url("../fonts/KdamThmorPro-Regular.ttf");
+}
+@font-face {
+  font-family: Mukta;
+  src: url("../fonts/MuktaMahee-Regular.ttf");
+}
+@font-face {
+  font-family: Kizard;
+  src: url("../fonts/kizard.otf");
+}
+@font-face {
+  font-family: Montage;
+  src: url("../fonts/Montage-Demo.ttf");
+}
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-image: url(../images/background.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-attachment: fixed;
+  padding: 0px;
+  margin: 0px;
+}
+body header {
+  z-index: 50;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: #FFF;
+  height: 100px;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0%;
+}
+body header .logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+body header .logo img {
+  border-radius: 100%;
+  width: 75px;
+}
+body header nav {
+  height: 40%;
+}
+body header nav ul {
+  display: flex;
+  justify-content: space-around;
+  padding: 0px 50px;
+}
+body header nav ul li {
+  display: flex;
+  justify-content: stretch;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+body header nav ul li a {
+  line-height: 0px;
+  list-style: none;
+  text-decoration: none;
+  padding: 20px 30px;
+  font-family: Kdam;
+  font-weight: 500;
+  font-size: larger;
+  color: #071D26;
+}
+body .page {
+  background-color: #F2F2F2;
+  border: solid 2px #CCD5D9;
+}
+body footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-content: center;
+  height: 200px;
+  background-color: #071D26;
+}
+body footer div {
+  text-decoration: none;
+  display: block;
+  color: #FFF;
+  list-style: none;
+  font-weight: lighter;
+  font-size: 15px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  line-height: 5px;
+}
+body footer div img {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+  height: 100px;
+}
+body footer div h3 {
+  font-size: small;
+  line-height: 5px;
+}
+body footer div h3 a {
+  color: #FFF;
+  background-color: #034873;
+  padding: 2px 2px;
+  color: #F2F2F2;
+  text-decoration: none;
+  transition: background-color 0.5s;
+}
+body footer div h3 a:hover {
+  background-color: #000;
+  color: #FFF;
+}
+body footer div ul {
+  display: flex;
+  flex-direction: column;
+}
+body footer div ul li {
+  font-size: small;
+  line-height: 20px;
+  list-style: none;
+}
+body footer div ul li a {
+  font-style: italic;
+  font-weight: lighter;
+  color: #F2F2F2;
+  padding: 2px 2px;
+  color: #F2F2F2;
+  text-decoration: none;
+}
+body footer .social {
+  text-align: start;
+  align-items: flex-start;
+}
+body footer .social ul {
+  display: flex;
+  flex-direction: column;
+}
+body footer .social ul li {
+  font-size: small;
+  line-height: 20px;
+  list-style: none;
+  font-style: italic;
+  font-weight: lighter;
+  color: #FFF;
+  padding: 2px 2px;
+  color: #FFF;
+  text-decoration: none;
+}
+body footer .social ul li a {
+  font-style: italic;
+  font-weight: lighter;
+  color: #FFF;
+  padding: 2px 2px;
+  color: #FFF;
+  text-decoration: none;
+}/*# sourceMappingURL=style.css.map */

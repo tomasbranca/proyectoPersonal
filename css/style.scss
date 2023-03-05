@@ -1,0 +1,167 @@
+@import "./partials/index";
+@font-face {
+    font-family: Kdam;
+    src: url("../fonts/KdamThmorPro-Regular.ttf");
+}
+@font-face {
+    font-family: Mukta;
+    src: url("../fonts/MuktaMahee-Regular.ttf");
+}
+@font-face {
+    font-family: Kizard;
+    src: url("../fonts/kizard.otf");
+}
+@font-face {
+    font-family: Montage;
+    src: url("../fonts/Montage-Demo.ttf");
+}
+html{
+    scroll-behavior: smooth;
+}
+
+body{
+    background-image: url(../images/background.png);
+    background-size: cover;
+    background-repeat:no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+    padding: 0px;
+    margin: 0px;
+    header{
+        z-index: 50;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        background-color: #FFF;
+        height: 100px;
+        position: -webkit-sticky;
+        position: sticky;
+        top: 0%;
+        .logo{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            img{
+                border-radius: 100%;
+                width: 75px;
+            }
+        }
+        nav{
+            height:40%;
+            ul{
+                display: flex;
+                justify-content: space-around;
+                padding: 0px 50px;
+                li{
+                    display: flex;
+                    justify-content: stretch;
+                    justify-content: center;
+                    align-items: center;
+                    width: 100%;
+                    a{
+                        line-height: 0px;
+                        list-style: none;
+                        text-decoration: none;
+                        padding: 20px 30px;
+                        font-family: Kdam;
+                        font-weight: 500;
+                        font-size: larger;
+                        color: #071D26;
+                    }
+                }
+            }
+        }
+    }
+    .page{
+        background-color: #F2F2F2;
+        border: solid 2px #CCD5D9;
+    }
+    footer{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-content: center;
+        height: 200px;
+        background-color: #071D26;
+        div{
+            text-decoration: none;
+            display: block;
+            color: #FFF; 
+            list-style: none;
+            font-weight: lighter;
+            font-size: 15px;
+            display:flex;
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+            line-height: 5px;
+            img{
+                display: flex;
+                flex-direction: column;
+                align-content: center;
+                justify-content: center;
+                height: 100px;
+            }
+            h3{
+                font-size: small;
+                line-height: 5px;
+                a{
+                    color:#FFF ;
+                    background-color:#034873;
+                    padding: 2px 2px;
+                    color: #F2F2F2; 
+                    text-decoration: none;
+                    transition: background-color 0.5s;
+                    &:hover{
+                        background-color: #000;
+                        color:#FFF;
+                    } 
+                }
+            }
+            ul{
+                display: flex;
+                flex-direction: column;
+                li{
+                    font-size: small;
+                    line-height: 20px;
+                    list-style: none;
+                    a{
+                        font-style: italic;
+                        font-weight: lighter;
+                        color:#F2F2F2 ;
+                        padding: 2px 2px;
+                        color: #F2F2F2; 
+                        text-decoration: none;
+                    } 
+                }
+            }
+        }
+        .social{
+            text-align: start;
+            align-items: flex-start;
+            ul{
+                display: flex;
+                flex-direction: column;
+                li{
+                    font-size: small;
+                    line-height: 20px;
+                    list-style: none;
+                    font-style: italic;
+                    font-weight: lighter;
+                    color:#FFF ;
+                    padding: 2px 2px;
+                    color: #FFF; 
+                    text-decoration: none;
+                    a{
+                        font-style: italic;
+                        font-weight: lighter;
+                        color:#FFF ;
+                        padding: 2px 2px;
+                        color: #FFF; 
+                        text-decoration: none;
+                    } 
+                }
+            }
+        }
+    }
+}
