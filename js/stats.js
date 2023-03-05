@@ -1,3 +1,44 @@
+function tableGenerator() {
+    for (let i3 = 0; i3 < statsPlayer.length; i3++){
+        tableContent +=
+        `<tr>
+            <th scope = "row"> ${statsPlayer[i3][0]} </th>
+            <td class="centrado"> ${(statsPlayer[i3][1] / games.length).toFixed(1)} </td>
+            <td class="centrado"> ${(statsPlayer[i3][2] / games.length).toFixed(1)} </td>
+            <td class="centrado"> ${(statsPlayer[i3][3]/games.length).toFixed(1)} </td>
+        </tr>`
+    }
+    statsPlayerTable.innerHTML = tableContent 
+}
+function average() {
+    for (let i1 = 0; i1 < games.length; i1++){
+        for (let i2 = 0; i2 < games[i1].length; i2++){
+            statsPlayer[i2][1] += games[i1][i2].points
+            statsPlayer[i2][2] += games[i1][i2].rebounds
+            statsPlayer[i2][3] += games[i1][i2].assists
+        }
+    }
+}
+
+let statsPlayer = [
+    ["Davis Bertans", 0, 0, 0],
+    ["Reggie Bullock", 0, 0, 0],
+    ["Luka Doncic", 0, 0, 0],
+    ["Josh Green", 0, 0, 0],
+    ["Tim Hardaway Jr.", 0, 0, 0],
+    ["Jaden Hardy", 0, 0, 0],
+    ["Justin Holiday", 0, 0, 0],
+    ["Kyrie Irving", 0, 0, 0],
+    ["Maxi Kleber", 0, 0, 0],
+    ["Dwight Powell", 0, 0, 0],
+    ["Christian Wood", 0, 0, 0]
+]
+
+
+let tableContent=""
+
+const statsPlayerTable = document.getElementById('statsPlayer')
+
 let games = [
     [
         { name: 'Bertans', points: 4, rebounds: 1, assists: 0 },
@@ -93,45 +134,11 @@ let games = [
 
 ]
 
+average()
 
-let statsPlayer = [
-    ["Davis Bertans", 0, 0, 0],
-    ["Reggie Bullock", 0, 0, 0],
-    ["Luka Doncic", 0, 0, 0],
-    ["Josh Green", 0, 0, 0],
-    ["Tim Hardaway Jr.", 0, 0, 0],
-    ["Jaden Hardy", 0, 0, 0],
-    ["Justin Holiday", 0, 0, 0],
-    ["Kyrie Irving", 0, 0, 0],
-    ["Maxi Kleber", 0, 0, 0],
-    ["Dwight Powell", 0, 0, 0],
-    ["Christian Wood", 0, 0, 0]
-]
+tableGenerator()
 
-
-
-for (let i1 = 0; i1 < games.length; i1++){
-    for (let i2 = 0; i2 < games[i1].length; i2++){
-        statsPlayer[i2][1] += games[i1][i2].points
-        statsPlayer[i2][2] += games[i1][i2].rebounds
-        statsPlayer[i2][3] += games[i1][i2].assists
-    }
-}
-
-const statsPlayerTable = document.getElementById('statsPlayer')
-
-let contenido
-
-for (let i3 = 0; i3 < statsPlayer.length; i3++){
-     contenido +=
-        `<tr>
-            <th scope = "row"> ${statsPlayer[i3][0]} </th>
-            <td class="centrado"> ${(statsPlayer[i3][1] / games.length).toFixed(1)} </td>
-            <td class="centrado"> ${(statsPlayer[i3][2] / games.length).toFixed(1)} </td>
-            <td class="centrado"> ${(statsPlayer[i3][3]/games.length).toFixed(1)} </td>
-        </tr>
-        `
-}
-statsPlayerTable.innerHTML = contenido
-
+const pts = document.getElementById('pts')
+const reb = document.getElementById('reb')
+const ast = document.getElementById('ast')
 
