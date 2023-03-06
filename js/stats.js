@@ -1,11 +1,17 @@
+window.addEventListener("load", function () {
+    for (let i = 0; i < thStats.length; i++){
+        thStats[i].addEventListener("click", thClicked)
+    }
+})
+
 function tableGenerator() {
     for (let i = 0; i < statsPlayer.length; i++){
         tableContent +=
         `<tr>
             <th scope = "row"> ${statsPlayer[i][0]} </th>
-            <td class="centrado"> ${(statsPlayer[i][1]).toFixed(1)} </td>
-            <td class="centrado"> ${(statsPlayer[i][2]).toFixed(1)} </td>
-            <td class="centrado"> ${(statsPlayer[i][3]).toFixed(1)} </td>
+            <td class="centrado"> ${(statsPlayer[i][1])} </td>
+            <td class="centrado"> ${(statsPlayer[i][2])} </td>
+            <td class="centrado"> ${(statsPlayer[i][3])} </td>
         </tr>`
     }
     statsPlayerTable.innerHTML = tableContent 
@@ -27,12 +33,18 @@ function average() {
         statsPlayer[i][2] = statsPlayer[i][2] / games.length
         statsPlayer[i][3] = statsPlayer[i][3] / games.length
     }
+    fixed()
 }
-function thSort() {
-    for (let i = 0; i < thStats.length; i++){
-        thStats[i].addEventListener("click", thClicked)
+
+function fixed() {
+    for (let i = 0; i < statsPlayer.length; i++){
+        statsPlayer[i][1] = statsPlayer[i][1].toFixed(1)
+        statsPlayer[i][2] = statsPlayer[i][2].toFixed(1)
+        statsPlayer[i][3] = statsPlayer[i][3].toFixed(1)
     }
+    
 }
+
 function thClicked(e) {
     const sortColumn = e.target.cellIndex !== undefined ? e.target.cellIndex : e.target.parentNode.cellIndex
     sortTableByColumn(sortColumn)
@@ -41,16 +53,16 @@ function thClicked(e) {
 function sortTableByColumn(sortColumn) {
     const tableBody = document.getElementById("statsPlayer")
     const rows = Array.from(tableBody.rows)
-    let ascClass = tableBody.classList.contains("asc")
-    let asc = !ascClass ? true : false
-    if (asc === true) {
+    var ascClass = tableBody.classList.contains("asc")
+    var asc = !ascClass ? true : false
+    if (asc === false) {
         var sortedRows = rows.sort(function (a, b) {
             const aText = a.cells[sortColumn].textContent
             const bText = b.cells[sortColumn].textContent
             return aText.localeCompare(bText)
         })
     }
-    if (asc === false) {
+    if (asc === true) {
         var sortedRows = rows.sort(function (a, b) {
             const aText = a.cells[sortColumn].textContent
             const bText = b.cells[sortColumn].textContent
@@ -69,6 +81,9 @@ function sortTableByColumn(sortColumn) {
     }
 }
 
+const thStats = document.getElementsByClassName("stats-box")  
+const statsPlayerTable = document.getElementById('statsPlayer') 
+let tableContent = ""
 
 let statsPlayer = [
     ["Davis Bertans", 0, 0, 0],
@@ -83,13 +98,6 @@ let statsPlayer = [
     ["Dwight Powell", 0, 0, 0],
     ["Christian Wood", 0, 0, 0]
 ]
-
-
-let tableContent = ""
-
-const thStats = document.getElementsByClassName("stats-box")
-
-const statsPlayerTable = document.getElementById('statsPlayer')
 
 let games = [
     [
@@ -189,7 +197,3 @@ let games = [
 ammount ()
 
 tableGenerator()
-
-thSort()
-
-console.log(statsPlayer)
