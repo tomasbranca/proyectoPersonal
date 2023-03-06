@@ -41,8 +41,8 @@ function thClicked(e) {
 function sortTableByColumn(sortColumn) {
     const tableBody = document.getElementById("statsPlayer")
     const rows = Array.from(tableBody.rows)
-    var ascClass = tableBody.classList.contains("asc")
-    var asc = !ascClass ? true : false
+    let ascClass = tableBody.classList.contains("asc")
+    let asc = !ascClass ? true : false
     if (asc === true) {
         var sortedRows = rows.sort(function (a, b) {
             const aText = a.cells[sortColumn].textContent
@@ -192,3 +192,4 @@ tableGenerator()
 
 thSort()
 
+console.log(statsPlayer)
