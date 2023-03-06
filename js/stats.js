@@ -1,16 +1,16 @@
 function tableGenerator() {
-    for (let i3 = 0; i3 < statsPlayer.length; i3++){
+    for (let i = 0; i < statsPlayer.length; i++){
         tableContent +=
         `<tr>
-            <th scope = "row"> ${statsPlayer[i3][0]} </th>
-            <td class="centrado"> ${(statsPlayer[i3][1] / games.length).toFixed(1)} </td>
-            <td class="centrado"> ${(statsPlayer[i3][2] / games.length).toFixed(1)} </td>
-            <td class="centrado"> ${(statsPlayer[i3][3]/games.length).toFixed(1)} </td>
+            <th scope = "row"> ${statsPlayer[i][0]} </th>
+            <td class="centrado"> ${(statsPlayer[i][1]).toFixed(1)} </td>
+            <td class="centrado"> ${(statsPlayer[i][2]).toFixed(1)} </td>
+            <td class="centrado"> ${(statsPlayer[i][3]).toFixed(1)} </td>
         </tr>`
     }
     statsPlayerTable.innerHTML = tableContent 
 }
-function average() {
+function ammount() {
     for (let i1 = 0; i1 < games.length; i1++){
         for (let i2 = 0; i2 < games[i1].length; i2++){
             statsPlayer[i2][1] += games[i1][i2].points
@@ -18,7 +18,57 @@ function average() {
             statsPlayer[i2][3] += games[i1][i2].assists
         }
     }
+    average()
 }
+
+function average() {
+    for (let i = 0; i < statsPlayer.length; i++){
+        statsPlayer[i][1] = statsPlayer[i][1] / games.length
+        statsPlayer[i][2] = statsPlayer[i][2] / games.length
+        statsPlayer[i][3] = statsPlayer[i][3] / games.length
+    }
+}
+function thSort() {
+    for (let i = 0; i < thStats.length; i++){
+        thStats[i].addEventListener("click", thClicked)
+    }
+}
+function thClicked(e) {
+    const sortColumn = e.target.cellIndex !== undefined ? e.target.cellIndex : e.target.parentNode.cellIndex
+    sortTableByColumn(sortColumn)
+}
+
+function sortTableByColumn(sortColumn) {
+    const tableBody = document.getElementById("statsPlayer")
+    const rows = Array.from(tableBody.rows)
+    var ascClass = tableBody.classList.contains("asc")
+    var asc = !ascClass ? true : false
+    if (asc === true) {
+        var sortedRows = rows.sort(function (a, b) {
+            const aText = a.cells[sortColumn].textContent
+            const bText = b.cells[sortColumn].textContent
+            return aText.localeCompare(bText)
+        })
+    }
+    if (asc === false) {
+        var sortedRows = rows.sort(function (a, b) {
+            const aText = a.cells[sortColumn].textContent
+            const bText = b.cells[sortColumn].textContent
+            return bText.localeCompare(aText)
+        })
+        
+    }
+    tableBody.innerHTML = ""
+    sortedRows.forEach(row => {
+        tableBody.appendChild(row)
+    })
+    if (asc === true) {
+        tableBody.classList.add("asc")
+    } else {
+        tableBody.classList.remove("asc")
+    }
+}
+
 
 let statsPlayer = [
     ["Davis Bertans", 0, 0, 0],
@@ -35,7 +85,9 @@ let statsPlayer = [
 ]
 
 
-let tableContent=""
+let tableContent = ""
+
+const thStats = document.getElementsByClassName("stats-box")
 
 const statsPlayerTable = document.getElementById('statsPlayer')
 
@@ -134,11 +186,9 @@ let games = [
 
 ]
 
-average()
+ammount ()
 
 tableGenerator()
 
-const pts = document.getElementById('pts')
-const reb = document.getElementById('reb')
-const ast = document.getElementById('ast')
+thSort()
 
