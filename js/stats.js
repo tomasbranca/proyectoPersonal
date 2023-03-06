@@ -1,9 +1,3 @@
-window.addEventListener("load", function () {
-    for (let i = 0; i < thStats.length; i++){
-        thStats[i].addEventListener("click", thClicked)
-    }
-})
-
 function tableGenerator() {
     for (let i = 0; i < statsPlayer.length; i++){
         tableContent +=
@@ -42,9 +36,15 @@ function fixed() {
         statsPlayer[i][2] = statsPlayer[i][2].toFixed(1)
         statsPlayer[i][3] = statsPlayer[i][3].toFixed(1)
     }
-    
 }
-
+    
+    
+    
+function thSort() {
+    for (let i = 0; i < thStats.length; i++){
+        thStats[i].addEventListener("click", thClicked)
+    }
+}
 function thClicked(e) {
     const sortColumn = e.target.cellIndex !== undefined ? e.target.cellIndex : e.target.parentNode.cellIndex
     sortTableByColumn(sortColumn)
@@ -53,8 +53,8 @@ function thClicked(e) {
 function sortTableByColumn(sortColumn) {
     const tableBody = document.getElementById("statsPlayer")
     const rows = Array.from(tableBody.rows)
-    var ascClass = tableBody.classList.contains("asc")
-    var asc = !ascClass ? true : false
+    let ascClass = tableBody.classList.contains("asc")
+    let asc = !ascClass ? true : false
     if (asc === false) {
         var sortedRows = rows.sort(function (a, b) {
             const aText = a.cells[sortColumn].textContent
@@ -81,9 +81,6 @@ function sortTableByColumn(sortColumn) {
     }
 }
 
-const thStats = document.getElementsByClassName("stats-box")  
-const statsPlayerTable = document.getElementById('statsPlayer') 
-let tableContent = ""
 
 let statsPlayer = [
     ["Davis Bertans", 0, 0, 0],
@@ -98,6 +95,12 @@ let statsPlayer = [
     ["Dwight Powell", 0, 0, 0],
     ["Christian Wood", 0, 0, 0]
 ]
+
+let tableContent = ""
+
+const thStats = document.getElementsByClassName("stats-box")
+
+const statsPlayerTable = document.getElementById('statsPlayer')
 
 let games = [
     [
@@ -197,3 +200,7 @@ let games = [
 ammount ()
 
 tableGenerator()
+
+thSort()
+
+console.log(statsPlayer)
