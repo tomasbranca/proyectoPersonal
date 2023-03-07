@@ -308,6 +308,9 @@ body header {
   top: 0%;
 }
 body header div {
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
   display: flex;
   justify-content: space-around;
   width: 225px;
