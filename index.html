@@ -13,9 +13,18 @@
 </head>
 <body>
     <header>
-        <a href="./index.html" class="logo">
-            <img src="./images/logo.png" alt="Logo de la página">
-        </a>
+        <div>
+            <a href="./index.html" class="logo">
+                <img src="./images/logo.png" alt="Logo de la página">
+            </a> 
+            <div id="login">
+                <h6 id="signIn"></h6>
+            </div>
+            <div id="logout">
+                <h6 id="signOut"></h6>
+            </div>
+        </div>
+
         <nav>
             <ul>
                 <li><a href="./pages/noticias">NOTICIAS</a></li>
@@ -304,10 +313,10 @@
                     <table class="table table-striped table-hover table-bordered">
                         <thead>
                             <tr>
-                                <th class="stats-box">Nombre <i class="bi bi-arrow-down-up"></i></th>
-                                <th class="centrado stats-box">PTS <i class="bi bi-arrow-down-up"></i></th>
-                                <th class="centrado stats-box">REB <i class="bi bi-arrow-down-up"></i></th>
-                                <th class="centrado stats-box">AST <i class="bi bi-arrow-down-up"></i></th>
+                                <th class="stats-box">Nombre <i class="bi bi-arrow-down-up icon"></i></th>
+                                <th id="points" class="centrado stats-box">PTS <i class="bi bi-arrow-down-up icon"></i></th>
+                                <th class="centrado stats-box">REB <i class="bi bi-arrow-down-up icon"></i></th>
+                                <th class="centrado stats-box">AST <i class="bi bi-arrow-down-up icon"></i></th>
                             </tr>
                         </thead>
                         <tbody id = "statsPlayer"></tbody>

@@ -260,6 +260,12 @@
 .page-index .stats table thead tr th:hover {
   cursor: pointer;
 }
+.page-index .stats table thead tr th .icon {
+  color: gray;
+}
+.page-index .stats table thead tr th .icon-active {
+  color: black;
+}
 
 @font-face {
   font-family: Kdam;
@@ -301,14 +307,26 @@ body header {
   position: sticky;
   top: 0%;
 }
-body header .logo {
+body header div {
   display: flex;
-  justify-content: center;
-  align-items: center;
+  justify-content: space-around;
+  width: 225px;
 }
-body header .logo img {
+body header div .logo img {
   border-radius: 100%;
   width: 75px;
+}
+body header div #login {
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  line-height: 5px;
+}
+body header div #login #signIn {
+  cursor: pointer;
 }
 body header nav {
   height: 40%;

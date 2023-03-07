@@ -271,6 +271,12 @@
                         &:hover{
                             cursor: pointer;
                         }
+                        .icon{
+                            color: gray;
+                        }
+                        .icon-active{
+                            color: black;
+                        }
                     }
                 }
             }

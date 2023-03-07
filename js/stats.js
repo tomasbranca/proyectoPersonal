@@ -32,38 +32,47 @@ function average() {
 
 function fixed() {
     for (let i = 0; i < statsPlayer.length; i++){
-        statsPlayer[i][1] = statsPlayer[i][1].toFixed(1)
-        statsPlayer[i][2] = statsPlayer[i][2].toFixed(1)
-        statsPlayer[i][3] = statsPlayer[i][3].toFixed(1)
+        statsPlayer[i][1] = statsPlayer[i][1].toFixed(1).padStart(4, "0")
+        statsPlayer[i][2] = statsPlayer[i][2].toFixed(1).padStart(4, "0")
+        statsPlayer[i][3] = statsPlayer[i][3].toFixed(1).padStart(4, "0")
     }
 }
     
-    
-    
-function thSort() {
+function statSort() {
     for (let i = 0; i < thStats.length; i++){
-        thStats[i].addEventListener("click", thClicked)
+        thStats[i].addEventListener("click", statClicked)
     }
-}
-function thClicked(e) {
-    const sortColumn = e.target.cellIndex !== undefined ? e.target.cellIndex : e.target.parentNode.cellIndex
-    sortTableByColumn(sortColumn)
 }
 
-function sortTableByColumn(sortColumn) {
+function statClicked(e) {
+    const sortColumn = e.target.cellIndex !== undefined ? e.target.cellIndex : e.target.parentNode.cellIndex
+    const icons = document.querySelectorAll(".icon")
+    icons.forEach(icon => {
+        if (icon.classList.contains("icon-active")) {
+            icon.classList.remove("icon-active")
+        }
+        if (icon.parentNode.cellIndex === sortColumn) {
+            icon.classList.add("icon-active")
+        }
+    })
+    sortTableByStat(sortColumn)
+}
+
+function sortTableByStat(sortColumn) {
     const tableBody = document.getElementById("statsPlayer")
     const rows = Array.from(tableBody.rows)
     let ascClass = tableBody.classList.contains("asc")
     let asc = !ascClass ? true : false
+    let sortedRows
     if (asc === false) {
-        var sortedRows = rows.sort(function (a, b) {
+        sortedRows = rows.sort(function (a, b) {
             const aText = a.cells[sortColumn].textContent
             const bText = b.cells[sortColumn].textContent
             return aText.localeCompare(bText)
         })
     }
     if (asc === true) {
-        var sortedRows = rows.sort(function (a, b) {
+        sortedRows = rows.sort(function (a, b) {
             const aText = a.cells[sortColumn].textContent
             const bText = b.cells[sortColumn].textContent
             return bText.localeCompare(aText)
@@ -81,6 +90,15 @@ function sortTableByColumn(sortColumn) {
     }
 }
 
+window.addEventListener("load", function() {
+    document.getElementById("points").click()
+})
+
+let tableContent = ""
+
+let thStats = document.getElementsByClassName("stats-box")
+
+const statsPlayerTable = document.getElementById('statsPlayer')
 
 let statsPlayer = [
     ["Davis Bertans", 0, 0, 0],
@@ -95,12 +113,6 @@ let statsPlayer = [
     ["Dwight Powell", 0, 0, 0],
     ["Christian Wood", 0, 0, 0]
 ]
-
-let tableContent = ""
-
-const thStats = document.getElementsByClassName("stats-box")
-
-const statsPlayerTable = document.getElementById('statsPlayer')
 
 let games = [
     [
@@ -178,7 +190,7 @@ let games = [
         { name: 'Holiday', points: 8, rebounds: 4, assists: 3 },
         { name: 'Irving', points: 30, rebounds: 3, assists: 6 },
         { name: 'Kleber', points: 10, rebounds: 5, assists: 0 },
-        { name: 'Powell', points: 7, rebounds: 4, assists: 2 },
+        { name: 'Powell', points: 5, rebounds: 4, assists: 2 },
         { name: 'Wood', points: 15, rebounds: 10, assists: 1 },
     ],
     [
@@ -194,13 +206,23 @@ let games = [
         { name: 'Powell', points: 7, rebounds: 7, assists: 0 },
         { name: 'Wood', points: 20, rebounds: 12, assists: 1 },
     ],
-
+    [
+        { name: 'Bertans', points: 2, rebounds: 0, assists: 0 },
+        { name: 'Bullock', points: 6, rebounds: 2, assists: 1 },
+        { name: 'Doncic', points: 33, rebounds: 8, assists: 6 },
+        { name: 'Green', points: 12, rebounds: 1, assists: 4 },
+        { name: 'Hardaway', points: 17, rebounds: 0, assists: 2 },
+        { name: 'Hardy', points: 5, rebounds: 1, assists: 1 },
+        { name: 'Holiday', points: 2, rebounds: 2, assists: 4 },
+        { name: 'Irving', points: 22, rebounds: 4, assists: 8 },
+        { name: 'Kleber', points: 8, rebounds: 5, assists: 2 },
+        { name: 'Powell', points: 7, rebounds: 10, assists: 0 },
+        { name: 'Wood', points: 17, rebounds: 5, assists: 1 },
+    ],
 ]
 
 ammount ()
 
 tableGenerator()
 
-thSort()
-
-console.log(statsPlayer)
+statSort()

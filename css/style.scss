@@ -37,13 +37,26 @@ body{
         position: -webkit-sticky;
         position: sticky;
         top: 0%;
-        .logo{
+        div{
             display: flex;
-            justify-content: center;
-            align-items: center;
-            img{
-                border-radius: 100%;
-                width: 75px;
+            justify-content: space-around;
+            width: 225px;
+            .logo{
+                img{
+                    border-radius: 100%;
+                    width: 75px;
+                }
+            }
+            #login{
+                width: max-content;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                line-height: 5px;
+                #signIn{
+                    cursor: pointer;
+                }
+
             }
         }
         nav{
