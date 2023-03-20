@@ -37,8 +37,7 @@ body{
         position: -webkit-sticky;
         position: sticky;
         top: 0%;
-        div{
-            width: max-content;
+        .main{
             display: flex;
             justify-content: space-around;
             width: 225px;
@@ -48,14 +47,26 @@ body{
                     width: 75px;
                 }
             }
-            #login{
-                width: max-content;
+            #log{
                 display: flex;
-                flex-direction: column;
                 justify-content: center;
-                line-height: 5px;
-                #signIn{
-                    cursor: pointer;
+                #login{
+                    display: none;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    h6{
+                        cursor: pointer;
+                        line-height: 0px;
+                    }
+                }
+                #account{
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    h6{
+                        line-height: 0px;
+                    }
                 }
 
             }

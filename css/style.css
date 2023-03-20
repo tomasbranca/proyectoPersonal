@@ -307,29 +307,36 @@ body header {
   position: sticky;
   top: 0%;
 }
-body header div {
-  width: -webkit-max-content;
-  width: -moz-max-content;
-  width: max-content;
+body header .main {
   display: flex;
   justify-content: space-around;
   width: 225px;
 }
-body header div .logo img {
+body header .main .logo img {
   border-radius: 100%;
   width: 75px;
 }
-body header div #login {
-  width: -webkit-max-content;
-  width: -moz-max-content;
-  width: max-content;
+body header .main #log {
+  display: flex;
+  justify-content: center;
+}
+body header .main #log #login {
+  display: none;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  line-height: 5px;
 }
-body header div #login #signIn {
+body header .main #log #login h6 {
   cursor: pointer;
+  line-height: 0px;
+}
+body header .main #log #account {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+body header .main #log #account h6 {
+  line-height: 0px;
 }
 body header nav {
   height: 40%;
