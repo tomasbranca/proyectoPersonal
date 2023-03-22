@@ -1,3 +1,5 @@
+dataBase = JSON.parse(localStorage.getItem("loginSystem"));
+
 //  Si no hay un usuario logueado, crea un "boton" para ingresarlo
 //  Si ya hay un usuario logueado, ejecuta la funcion 'accountLoged'
 
@@ -179,8 +181,6 @@ function loadDataBase() {
     }
   };
 }
-
-dataBase = JSON.parse(localStorage.getItem("loginSystem"));
 
 let logDiv = document.getElementById("log");
 
