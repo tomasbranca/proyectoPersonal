@@ -176,7 +176,7 @@ function loadDataBase() {
   dataBase = {
     TomasBranca: {
       email: "tomi.brancat@gmail.com",
-      password: "prueba123",
+      password: "beniloli7",
       role: "admin",
     }
   };
