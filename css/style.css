@@ -63,6 +63,10 @@
 .page-index .standings {
   overflow: hidden;
 }
+.page-index .standings ::-webkit-scrollbar {
+  overflow: hidden;
+  width: 0px;
+}
 .page-index .standings h5 {
   position: -webkit-sticky;
   position: sticky;

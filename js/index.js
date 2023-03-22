@@ -1,16 +1,20 @@
-function saveData() {
-  localStorage.setItem("loginSystem", JSON.stringify(dataBase))
-}
+//  Si no hay un usuario logueado, crea un "boton" para ingresarlo
+//  Si ya hay un usuario logueado, ejecuta la funcion 'accountLoged'
 
-function loadDataBase() {
-  dataBase = {
-    TomasBranca: {
-      email: "tomi.brancat@gmail.com",
-      password: "beniloli7",
-      role: "admin",
-    }
-  };
-}
+window.addEventListener("load", function () {
+  if (!user) {
+    logDiv.innerHTML = `<div id="login"><h6><i class="bi bi-person-fill"></i> Ingresar usuario</h6></div>`
+    let loginDiv = document.getElementById("login")
+    loginDiv.addEventListener("click", loginAccount)
+  }
+  else if (user) {
+    accountLoged()
+  }
+})
+
+//  Aparece un menu donde se puede ingresar el nombre del usuario y la contraseña
+//  Si el usuario no existe o la contraseña es incorrecta se informa el error
+//  Habrá un boton para cancelar y otro para crear una cuenta, si se clickea el ultimo realiza la funcion 'createAccount'
 
 async function loginAccount() {
   let { value: data } = await Swal.fire({
@@ -58,6 +62,10 @@ async function loginAccount() {
   });
   return data;
 }
+
+//  Saldra un menu donde te permitira crear un nombre de usuario, una contraseña y un mail para la cuenta
+//  Si no ingreso un nombre, un mail, una contraseña o las contraseñas no coinciden, se informará del error
+//  Se guardará el usuario en la base de datos y se indicará que la operacion salió con exito
 
 async function createAccount() {
   Swal.fire({
@@ -117,6 +125,11 @@ async function createAccount() {
   })
 }
 
+//  Si se logueo una cuenta aparecera su nombre y por debajo un boton para cerrar sesion
+//  Aparecera un mensaje dando la bienvenida al usuario
+//  Si se recarga la pagina, seguira estando logueado
+//  Si se pulsa el boton para cerrar sesion, volverá a aparecer para ingresar usuario
+
 async function accountLoged() {
   localStorage.setItem('currentUser', user)
   logDiv.innerHTML = `<div id="account"><h6><i class="bi bi-person-circle"></i> ${user} </h6>
@@ -145,6 +158,27 @@ async function accountLoged() {
   })
 }
 
+//  Guarda las cuentas en la base de datos
+
+function saveData() {
+  localStorage.setItem("loginSystem", JSON.stringify(dataBase))
+}
+
+//  En caso de no haber cuentas en la base de datos, se creara automaticamente la cuenta administradora
+
+if (!dataBase) {
+  loadDataBase();
+}
+
+function loadDataBase() {
+  dataBase = {
+    TomasBranca: {
+      email: "tomi.brancat@gmail.com",
+      password: "prueba123",
+      role: "admin",
+    }
+  };
+}
 
 dataBase = JSON.parse(localStorage.getItem("loginSystem"));
 
@@ -152,19 +186,4 @@ let logDiv = document.getElementById("log");
 
 let user = localStorage.getItem('currentUser')
 
-
-if (!dataBase) {
-  loadDataBase();
-}
-
 let accountDiv = document.getElementById("account")
-window.addEventListener("load", function () {
-  if (!user) {
-    logDiv.innerHTML = `<div id="login"><h6><i class="bi bi-person-fill"></i> Ingresar usuario</h6></div>`
-    let loginDiv = document.getElementById("login")
-    loginDiv.addEventListener("click", loginAccount)
-  }
-  else if (user) {
-    accountLoged()
-  }
-})
